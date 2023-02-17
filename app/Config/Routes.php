@@ -57,8 +57,11 @@ $routes->get('/iso-certification', 'Home::iso_certification');
 $routes->get('/msme-registration', 'Home::msme_registration');
 $routes->get('/import-export-code-registration', 'Home::import_export_code_registration');
 $routes->get('/contact-us', 'Home::contact_us');
+$routes->post('/contact-us', 'Home::contact_us_data');
 $routes->get('/pay-now', 'Home::pay_now');
 $routes->get('/career', 'Home::career');
+$routes->post('/career', 'Home::career_data');
+
 
 
 /*

@@ -4614,6 +4614,17 @@ body, .banner-area,
   width: 100px;
 }
 
+/* newly added css */
+
+.contact-form-content h3{
+  text-align: center;
+  font-weight: bold;
+}
+.contact-form-content h4{
+  text-align: center;
+  font-weight: bold;
+}
+
 .contact-form-area.color-yellow .address-info i {
   color: #ff9800;
 }

@@ -1,6 +1,6 @@
 <!-- Start Breadcrumb 
     ============================================= -->
-    <div class="breadcrumb-area shadow theme-hard bg-fixed text-light"
+<div class="breadcrumb-area shadow theme-hard bg-fixed text-light"
     style="background-image: url('<?= base_url(); ?>/assets/website/img/banner/12.jpg');">
     <div class="container">
         <div class="row">
@@ -19,13 +19,26 @@
 
 <!-- Start Contact 
     ============================================= -->
-    <div class="contact-form-area default-padding-top">
+<div class="contact-form-area default-padding-top">
     <div class="container">
         <div class="row">
             <!-- Start Contact Form -->
             <div class="col-md-7 contact-form-content default-padding-bottom">
                 <div class="content">
-                    <form action="" method="POST" class="contact-form">
+                    <h3>Committed to promote a diverse and inclusive workforce</h3>
+                    <h4>Hello, Nice to Meet You...<br>
+                        Leave your message and we will contact you…</h4>
+                    <?php
+                    $session = session();
+                    if ($session->getFlashdata('success')) {
+                        echo $session->getFlashdata('success');
+
+                    } else {
+                        echo $session->getFlashdata('error');
+                    }
+                    ?>
+                    <?= \Config\Services::validation()->listErrors(); ?>
+                    <form id="career_form">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="form-group">
@@ -54,11 +67,12 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Tell Us About Project *"></textarea>
+                                    <textarea class="form-control" id="message" name="message"
+                                        placeholder="Message *"></textarea>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="row">
                                 <button type="submit" name="submit" id="submit">
@@ -81,4 +95,3 @@
     </div>
 </div>
 <!-- End Contact -->
-

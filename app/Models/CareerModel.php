@@ -4,17 +4,26 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class WebModel extends Model
+class CareerModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'webs';
+    protected $table            = 'bdslegalserv_career';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'id',
+        'name',
+        'email',
+        'phone',
+        'message',
+        'status',
+        'created_at',
+        'updated_at'
+    ];
 
     // Dates
     protected $useTimestamps = false;

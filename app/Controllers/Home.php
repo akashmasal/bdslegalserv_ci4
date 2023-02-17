@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\CareerModel;
+
 class Home extends BaseController
 {
     function index()
@@ -143,6 +145,47 @@ class Home extends BaseController
         $data['page'] = "website/pages/contact_us";
         return view('website/partials/template', $data);
     }
+    function contact_us_data()
+    {
+        helper(['form', 'url']);
+        $model = new CareerModel();
+        $session = session();
+        $name = $this->request->getVar('name');
+        $email = $this->request->getVar('email');
+        $phone = $this->request->getVar('phone');
+        $message = $this->request->getVar('message');
+        $rules = [
+            "name" => 'required',
+            "email" => 'required',
+            "phone" => 'required',
+            "message" => 'required'
+        ];
+
+        $validation = $this->validate($rules);
+        if ($validation) {
+            $data = [
+                "name" => $name,
+                "email" => $email,
+                "phone" => $phone,
+                "message" => $message,
+                "created_at" => date('d-m-Y')
+            ];
+            $insert = $model->save($data);
+            if ($insert) {
+                $session->setFlashdata('success', 'Respose Has Been Saved..');
+                return redirect()->to('/career');
+            } else {
+                $session->setFlashdata('error', 'Failed..');
+                return redirect()->to('/career');
+            }
+        } else {
+            $data['validation'] = $this->validator;
+            $data['page_title'] = "BDSLegalserv || Career";
+            $data['page'] = "website/pages/career";
+            return view('website/partials/template', $data);
+
+        }
+    }
 
     function pay_now()
     {
@@ -156,5 +199,52 @@ class Home extends BaseController
         $data['page_title'] = "BDSLegalserv || Career";
         $data['page'] = "website/pages/career";
         return view('website/partials/template', $data);
+    }
+
+    function career_data()
+    {
+        helper(['form', 'url']);
+        $model = new CareerModel();
+        $session = session();
+        $name = $this->request->getVar('name');
+        $email = $this->request->getVar('email');
+        $phone = $this->request->getVar('phone');
+        $message = $this->request->getVar('message');
+        $rules = [
+            "name" => 'required',
+            "email" => 'required',
+            "phone" => 'required',
+            "message" => 'required'
+        ];
+
+        $validation = $this->validate($rules);
+        if ($validation) {
+            $data = [
+                "name" => $name,
+                "email" => $email,
+                "phone" => $phone,
+                "message" => $message,
+                "created_at" => date('d-m-Y')
+            ];
+            $insert = $model->save($data);
+            if ($insert) {
+                $session->setFlashdata('success', 'Respose Has Been Saved..');
+                return redirect()->to('/career');
+            } else {
+                $session->setFlashdata('error', 'Failed..');
+                return redirect()->to('/career');
+            }
+        } else {
+            $data['validation'] = $this->validator;
+            $data['page_title'] = "BDSLegalserv || Career";
+            $data['page'] = "website/pages/career";
+            return view('website/partials/template', $data);
+
+        }
+
+
+
+
+
     }
 }

@@ -25,7 +25,7 @@
             <!-- Start Contact Form -->
             <div class="col-md-7 contact-form-content default-padding-bottom">
                 <div class="content">
-                    <form action="" method="POST" class="contact-form">
+                    <form id="contact_form">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="form-group">
@@ -53,9 +53,17 @@
                         </div>
                         <div class="col-md-12">
                             <div class="row">
+                                <div class="form-group">
+                                    <input class="form-control" id="subject" name="subject" placeholder="subject" type="text">
+                                    <span class="alert-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
                                 <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Tell Us About Project *"></textarea>
+                                    <textarea class="form-control" id="message" name="message"
+                                        placeholder="Your Message *"></textarea>
                                 </div>
                             </div>
                         </div>
