@@ -226,6 +226,9 @@ class Home extends BaseController
                 "message" => $message,
                 "created_at" => date('d-m-Y')
             ];
+            echo "<pre>";
+            print_r($data);
+            die;
             $insert = $model->save($data);
             if ($insert) {
                 $session->setFlashdata('success', 'Respose Has Been Saved..');
