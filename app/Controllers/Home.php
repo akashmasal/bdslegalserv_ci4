@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CareerModel;
+use App\Models\ContactModel;
 
 class Home extends BaseController
 {
@@ -147,17 +148,22 @@ class Home extends BaseController
     }
     function contact_us_data()
     {
+        // echo "<pre>";
+        // print_r($_POST);
+        // die;
         helper(['form', 'url']);
-        $model = new CareerModel();
+        $model = new ContactModel();
         $session = session();
         $name = $this->request->getVar('name');
         $email = $this->request->getVar('email');
         $phone = $this->request->getVar('phone');
+        $subject = $this->request->getVar('subject');
         $message = $this->request->getVar('message');
         $rules = [
             "name" => 'required',
             "email" => 'required',
             "phone" => 'required',
+            "subject" => 'required',
             "message" => 'required'
         ];
 
@@ -167,16 +173,22 @@ class Home extends BaseController
                 "name" => $name,
                 "email" => $email,
                 "phone" => $phone,
+                "subject" => $subject,
                 "message" => $message,
-                "created_at" => date('d-m-Y')
+                "created_at" => date('d-m-Y'),
+                "updated_at" => date('d-m-Y')
             ];
+
+            // echo "<pre>";
+            // print_r($data);
+            // die;
             $insert = $model->save($data);
             if ($insert) {
                 $session->setFlashdata('success', 'Respose Has Been Saved..');
-                return redirect()->to('/career');
+                return redirect()->to('/contact-us');
             } else {
                 $session->setFlashdata('error', 'Failed..');
-                return redirect()->to('/career');
+                return redirect()->to('/contact-us');
             }
         } else {
             $data['validation'] = $this->validator;

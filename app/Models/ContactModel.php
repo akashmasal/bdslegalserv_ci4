@@ -7,14 +7,24 @@ use CodeIgniter\Model;
 class ContactModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'contacts';
+    protected $table            = 'bdslegalserv_contact';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'id',
+        'name',
+        'email',
+        'phone',
+        'subject',
+        'message',
+        'status',
+        'created_at',
+        'updated_at'
+    ];
 
     // Dates
     protected $useTimestamps = false;

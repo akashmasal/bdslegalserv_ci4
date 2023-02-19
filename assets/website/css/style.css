@@ -5447,3 +5447,53 @@ footer.demo .copyright {
 footer.demo .copyright a {
     color: #2154cf;
 }
+
+/**Import Export Code Registration***/
+.imp_exp h1{
+  text-align: center;
+  font-weight: bold;
+}
+.imp_exp h2{
+  font-weight: bold;
+}
+.imp_exp h3{
+  font-weight: bold;
+}
+
+.imp_exp #imp_exp{
+  font-size: 1.6rem;
+  padding-bottom: 5vh;
+}
+
+
+
+/**MSME***/
+
+.msme h1{
+  text-align: center;
+  font-weight: bold;
+}
+.msme h2{
+  font-weight: bold;
+}
+.msme h3{
+  font-weight: bold;
+}
+
+.msme strong{
+  color: #2A2973;
+  font-weight: bolder;
+  font-size: 1.6rem;
+}
+
+#msme_benefits h2{
+  font-size: 2.2rem;
+}
+
+.msme #msme{
+  font-size: 1.6rem;
+  padding-bottom: 5vh;
+}
+
+
+
